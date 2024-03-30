@@ -20,16 +20,15 @@ public class Player {
     private boolean veteran;
     private String firstJoin;
     private String lastJoin;
-    // Docs specify this type as a int instead of a double
     private double playtime;
-    //    private Guild guild;
+    private PlayerGuild guild;
     private PlayerGlobalData globalData;
-    // Nullable/Doesn't work sometimes
+    // Nullable
     private Integer forumLink;
     private Map<String, Integer> ranking;
     private boolean publicProfile;
     // Nullable
-    //    private Map<String, CharacterData> characters;
+    private Map<String, PlayerCharacterData> characters;
 
     public String getUsername() {
         return username;
@@ -87,6 +86,10 @@ public class Player {
         return playtime;
     }
 
+    public PlayerGuild getGuild() {
+        return guild;
+    }
+
     public PlayerGlobalData getGlobalData() {
         return globalData;
     }
@@ -101,6 +104,10 @@ public class Player {
 
     public boolean isPublicProfile() {
         return publicProfile;
+    }
+
+    public Map<String, PlayerCharacterData> getCharacters() {
+        return characters;
     }
 
     @Override
@@ -120,10 +127,12 @@ public class Player {
                 ", firstJoin='" + firstJoin + '\'' +
                 ", lastJoin='" + lastJoin + '\'' +
                 ", playtime=" + playtime +
+                ", guild=" + guild +
                 ", globalData=" + globalData +
                 ", forumLink=" + forumLink +
                 ", ranking=" + ranking +
                 ", publicProfile=" + publicProfile +
+                ", characters=" + characters +
                 '}';
     }
 

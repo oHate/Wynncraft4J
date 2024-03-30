@@ -48,7 +48,9 @@ public class DefaultHttpClient implements WynncraftHttpClient {
     }
 
     @Override
-    public void shutdown() {}
+    public void shutdown() {
+        httpClient.shutdownNow();
+    }
 
     private RateLimit createRateLimitResponse(HttpResponse<String> response) {
         if (response.statusCode() != 200) {

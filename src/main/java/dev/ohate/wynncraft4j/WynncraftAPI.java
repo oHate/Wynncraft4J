@@ -28,6 +28,11 @@ public class WynncraftAPI {
         return get(Player.class, "player/" + uuid);
     }
 
+    public CompletableFuture<Player> getFullPlayer(UUID uuid) {
+        return get(Player.class, "player/" + uuid, HTTPQueryParams.create()
+                .add("fullResult", "True"));
+    }
+
     private <T> CompletableFuture<T> get(Class<T> clazz, String request) {
         return get(clazz, request, null);
     }
