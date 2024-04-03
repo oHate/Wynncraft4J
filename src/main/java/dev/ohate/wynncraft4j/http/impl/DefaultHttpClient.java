@@ -53,7 +53,7 @@ public class DefaultHttpClient implements WynncraftHttpClient {
     }
 
     private RateLimit createRateLimitResponse(HttpResponse<String> response) {
-        if (response.statusCode() != 200) {
+        if (response.statusCode() != 200 || response.statusCode() != 300) {
             return null;
         }
 

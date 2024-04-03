@@ -2,33 +2,38 @@ package dev.ohate.wynncraft4j.model.player;
 
 import dev.ohate.wynncraft4j.model.player.global.PlayerGlobalData;
 
+import java.time.Instant;
 import java.util.Map;
 
 public class Player {
 
+    private String uuid;
     private String username;
     private boolean online;
     private String server;
-    // Nullable
-    private String activeCharacter;
-    private String uuid;
+    private double playtime;
+    private Instant firstJoin;
+    private Instant lastJoin;
     private String rank;
-    private String rankBadge;
-    private PlayerLegacyRankColour legacyRankColour;
     private String shortenedRank;
     private String supportRank;
-    private boolean veteran;
-    private String firstJoin;
-    private String lastJoin;
-    private double playtime;
+    private String rankBadge;
+    private PlayerLegacyRankColour legacyRankColour;
     private PlayerGuild guild;
     private PlayerGlobalData globalData;
-    // Nullable
-    private Integer forumLink;
     private Map<String, Integer> ranking;
+    private boolean veteran;
     private boolean publicProfile;
     // Nullable
+    private Integer forumLink;
+    // Nullable
+    private String activeCharacter;
+    // Nullable
     private Map<String, PlayerCharacterData> characters;
+
+    public String getUuid() {
+        return uuid;
+    }
 
     public String getUsername() {
         return username;
@@ -42,24 +47,20 @@ public class Player {
         return server;
     }
 
-    public String getActiveCharacter() {
-        return activeCharacter;
+    public double getPlaytime() {
+        return playtime;
     }
 
-    public String getUuid() {
-        return uuid;
+    public Instant getFirstJoin() {
+        return firstJoin;
+    }
+
+    public Instant getLastJoin() {
+        return lastJoin;
     }
 
     public String getRank() {
         return rank;
-    }
-
-    public String getRankBadge() {
-        return rankBadge;
-    }
-
-    public PlayerLegacyRankColour getLegacyRankColour() {
-        return legacyRankColour;
     }
 
     public String getShortenedRank() {
@@ -70,20 +71,12 @@ public class Player {
         return supportRank;
     }
 
-    public boolean isVeteran() {
-        return veteran;
+    public String getRankBadge() {
+        return rankBadge;
     }
 
-    public String getFirstJoin() {
-        return firstJoin;
-    }
-
-    public String getLastJoin() {
-        return lastJoin;
-    }
-
-    public double getPlaytime() {
-        return playtime;
+    public PlayerLegacyRankColour getLegacyRankColour() {
+        return legacyRankColour;
     }
 
     public PlayerGuild getGuild() {
@@ -94,16 +87,24 @@ public class Player {
         return globalData;
     }
 
-    public Integer getForumLink() {
-        return forumLink;
-    }
-
     public Map<String, Integer> getRanking() {
         return ranking;
     }
 
+    public boolean isVeteran() {
+        return veteran;
+    }
+
     public boolean isPublicProfile() {
         return publicProfile;
+    }
+
+    public Integer getForumLink() {
+        return forumLink;
+    }
+
+    public String getActiveCharacter() {
+        return activeCharacter;
     }
 
     public Map<String, PlayerCharacterData> getCharacters() {
@@ -113,25 +114,25 @@ public class Player {
     @Override
     public String toString() {
         return "Player{" +
-                "username='" + username + '\'' +
+                "uuid='" + uuid + '\'' +
+                ", username='" + username + '\'' +
                 ", online=" + online +
                 ", server='" + server + '\'' +
-                ", activeCharacter='" + activeCharacter + '\'' +
-                ", uuid='" + uuid + '\'' +
+                ", playtime=" + playtime +
+                ", firstJoin=" + firstJoin +
+                ", lastJoin=" + lastJoin +
                 ", rank='" + rank + '\'' +
-                ", rankBadge='" + rankBadge + '\'' +
-                ", legacyRankColour=" + legacyRankColour +
                 ", shortenedRank='" + shortenedRank + '\'' +
                 ", supportRank='" + supportRank + '\'' +
-                ", veteran=" + veteran +
-                ", firstJoin='" + firstJoin + '\'' +
-                ", lastJoin='" + lastJoin + '\'' +
-                ", playtime=" + playtime +
+                ", rankBadge='" + rankBadge + '\'' +
+                ", legacyRankColour=" + legacyRankColour +
                 ", guild=" + guild +
                 ", globalData=" + globalData +
-                ", forumLink=" + forumLink +
                 ", ranking=" + ranking +
+                ", veteran=" + veteran +
                 ", publicProfile=" + publicProfile +
+                ", forumLink=" + forumLink +
+                ", activeCharacter='" + activeCharacter + '\'' +
                 ", characters=" + characters +
                 '}';
     }

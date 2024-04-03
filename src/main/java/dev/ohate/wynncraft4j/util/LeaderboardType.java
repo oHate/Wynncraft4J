@@ -47,4 +47,5 @@ public enum LeaderboardType {
     public String toString() {
         return value;
     }
+
 }

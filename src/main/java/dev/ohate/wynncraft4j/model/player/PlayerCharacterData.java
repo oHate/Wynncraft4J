@@ -17,7 +17,7 @@ public class PlayerCharacterData {
     private int xpPercent;
     private int totalLevel;
     private int wars;
-    private int playtime;
+    private double playtime;
     private int mobsKilled;
     private int chestsFound;
     private int blocksWalked;
@@ -61,7 +61,7 @@ public class PlayerCharacterData {
         return wars;
     }
 
-    public int getPlaytime() {
+    public double getPlaytime() {
         return playtime;
     }
 
