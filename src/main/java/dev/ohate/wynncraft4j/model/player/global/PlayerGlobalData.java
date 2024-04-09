@@ -9,7 +9,7 @@ public class PlayerGlobalData {
     private PlayerDungeons dungeons;
     private PlayerRaids raids;
     private int completedQuests;
-    private PlayerPVP pvp;
+    private PlayerPvP pvp;
 
     public int getWars() {
         return wars;
@@ -39,7 +39,7 @@ public class PlayerGlobalData {
         return completedQuests;
     }
 
-    public PlayerPVP getPvp() {
+    public PlayerPvP getPvp() {
         return pvp;
     }
 

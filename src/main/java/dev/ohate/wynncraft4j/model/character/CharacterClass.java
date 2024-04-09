@@ -1,4 +1,4 @@
-package dev.ohate.wynncraft4j.model.classes;
+package dev.ohate.wynncraft4j.model.character;
 
 import java.util.Map;
 
@@ -8,7 +8,7 @@ public class CharacterClass {
     private String name;
     private String lore;
     private int overallDifficulty;
-    private Map<String, ClassArchetype> archetypes;
+    private Map<String, CharacterArchetype> archetypes;
 
     public String getId() {
         return id;
@@ -26,13 +26,13 @@ public class CharacterClass {
         return overallDifficulty;
     }
 
-    public Map<String, ClassArchetype> getArchetypes() {
+    public Map<String, CharacterArchetype> getArchetypes() {
         return archetypes;
     }
 
     @Override
     public String toString() {
-        return "Class{" +
+        return "CharacterClass{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", lore='" + lore + '\'' +

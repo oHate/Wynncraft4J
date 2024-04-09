@@ -1,9 +1,14 @@
 package dev.ohate.wynncraft4j.model.player;
 
+import dev.ohate.wynncraft4j.model.player.character.PlayerCharacter;
 import dev.ohate.wynncraft4j.model.player.global.PlayerGlobalData;
 
+import java.text.NumberFormat;
 import java.time.Instant;
+import java.util.Collections;
+import java.util.Locale;
 import java.util.Map;
+import java.util.UUID;
 
 public class Player {
 
@@ -24,12 +29,9 @@ public class Player {
     private Map<String, Integer> ranking;
     private boolean veteran;
     private boolean publicProfile;
-    // Nullable
     private Integer forumLink;
-    // Nullable
     private String activeCharacter;
-    // Nullable
-    private Map<String, PlayerCharacterData> characters;
+    private Map<UUID, PlayerCharacter> characters;
 
     public String getUuid() {
         return uuid;
@@ -107,8 +109,26 @@ public class Player {
         return activeCharacter;
     }
 
-    public Map<String, PlayerCharacterData> getCharacters() {
-        return characters;
+    public Map<UUID, PlayerCharacter> getCharacters() {
+        return characters == null ? Collections.emptyMap() : characters;
+    }
+
+    public PlayerRank getPlayerRank() {
+        return PlayerRank.fromString(rank.equals("Player") && supportRank != null ? supportRank : rank);
+    }
+
+    public String getFormattedRanking(String type) {
+        if (ranking == null) {
+            return "N/A";
+        }
+
+        Integer rank = ranking.get(type);
+
+        if (rank == null) {
+            return "N/A";
+        }
+
+        return "#" + NumberFormat.getNumberInstance(Locale.US).format(rank + 1);
     }
 
     @Override

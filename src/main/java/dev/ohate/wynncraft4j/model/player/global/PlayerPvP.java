@@ -1,6 +1,6 @@
 package dev.ohate.wynncraft4j.model.player.global;
 
-public class PlayerPVP {
+public class PlayerPvP {
 
     private int kills;
     private int deaths;

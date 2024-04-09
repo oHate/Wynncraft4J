@@ -28,23 +28,21 @@ public class DefaultHttpClient implements WynncraftHttpClient {
     }
 
     @Override
-    public CompletableFuture<WynncraftHttpResponse> makeRequest(String url) {
-        return CompletableFuture.supplyAsync(() -> {
-            HttpRequest request = HttpRequest.newBuilder()
-                    .uri(URI.create(url))
-                    .header("Content-Type", "application/json")
-                    .header("User-Agent", DEFAULT_USER_AGENT)
-                    .GET()
-                    .build();
+    public WynncraftHttpResponse makeRequest(String url) {
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create(url))
+                .header("Content-Type", "application/json")
+                .header("User-Agent", DEFAULT_USER_AGENT)
+                .GET()
+                .build();
 
-            try {
-                HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
-                return new WynncraftHttpResponse(response.statusCode(), response.body(), createRateLimitResponse(response));
-            } catch (IOException | InterruptedException e) {
-                throw new RuntimeException(e);
-            }
+        try {
+            HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
 
-        }, executorService);
+            return new WynncraftHttpResponse(response.statusCode(), response.body(), createRateLimit(response));
+        } catch (IOException | InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
@@ -52,16 +50,12 @@ public class DefaultHttpClient implements WynncraftHttpClient {
         httpClient.shutdownNow();
     }
 
-    private RateLimit createRateLimitResponse(HttpResponse<String> response) {
-        if (response.statusCode() != 200 || response.statusCode() != 300) {
-            return null;
-        }
-
-        int remaining = Integer.parseInt(response.headers().firstValue("RateLimit-Remaining").get());
-        int reset = Integer.parseInt(response.headers().firstValue("RateLimit-Reset").get());
-        int limit = Integer.parseInt(response.headers().firstValue("RateLimit-Limit").get());
-
-        return new RateLimit(remaining, reset, limit);
+    private RateLimit createRateLimit(HttpResponse<String> response) {
+        return new RateLimit(
+                Integer.parseInt(response.headers().firstValue("RateLimit-Remaining").get()),
+                Integer.parseInt(response.headers().firstValue("RateLimit-Reset").get()),
+                Integer.parseInt(response.headers().firstValue("RateLimit-Limit").get())
+        );
     }
 
 }

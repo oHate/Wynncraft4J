@@ -22,7 +22,7 @@
 ```xml
 <dependencies>
     <dependency>
-        <groupId>com.github.stevensci</groupId>
+        <groupId>com.github.oHate</groupId>
         <artifactId>Wynncraft4J</artifactId>
         <version>VERSION</version>
     </dependency>
@@ -39,7 +39,7 @@ repositories {
 
 ```groovy
 dependencies {
-    implementation 'com.github.stevensci:Wynncraft4J:VERSION'
+    implementation 'com.github.oHate:Wynncraft4J:VERSION'
 }
 ```
 

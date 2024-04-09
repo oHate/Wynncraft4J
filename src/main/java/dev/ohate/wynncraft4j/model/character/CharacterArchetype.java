@@ -1,6 +1,6 @@
-package dev.ohate.wynncraft4j.model.classes;
+package dev.ohate.wynncraft4j.model.character;
 
-public class ClassArchetype {
+public class CharacterArchetype {
 
     private String name;
     private int difficulty;
@@ -35,7 +35,7 @@ public class ClassArchetype {
 
     @Override
     public String toString() {
-        return "ClassArchetype{" +
+        return "CharacterArchetype{" +
                 "name='" + name + '\'' +
                 ", difficulty=" + difficulty +
                 ", damage=" + damage +

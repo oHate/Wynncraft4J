@@ -1,14 +1,12 @@
-package dev.ohate.wynncraft4j.model.player;
+package dev.ohate.wynncraft4j.model.player.character;
 
-import dev.ohate.wynncraft4j.model.player.character.PlayerProfessions;
-import dev.ohate.wynncraft4j.model.player.character.PlayerSkillPoints;
 import dev.ohate.wynncraft4j.model.player.global.PlayerDungeons;
-import dev.ohate.wynncraft4j.model.player.global.PlayerPVP;
+import dev.ohate.wynncraft4j.model.player.global.PlayerPvP;
 import dev.ohate.wynncraft4j.model.player.global.PlayerRaids;
 
 import java.util.Arrays;
 
-public class PlayerCharacterData {
+public class PlayerCharacter {
 
     private String type;
     private String nickname;
@@ -25,7 +23,7 @@ public class PlayerCharacterData {
     private int logins;
     private int deaths;
     private int discoveries;
-    private PlayerPVP pvp;
+    private PlayerPvP pvp;
     private String[] gamemode;
     private PlayerSkillPoints skillPoints;
     private PlayerProfessions professions;
@@ -93,7 +91,7 @@ public class PlayerCharacterData {
         return discoveries;
     }
 
-    public PlayerPVP getPvp() {
+    public PlayerPvP getPvp() {
         return pvp;
     }
 
@@ -102,7 +100,7 @@ public class PlayerCharacterData {
     }
 
     public PlayerSkillPoints getSkillPoints() {
-        return skillPoints;
+        return skillPoints == null ? new PlayerSkillPoints() : skillPoints;
     }
 
     public PlayerProfessions getProfessions() {
@@ -123,7 +121,7 @@ public class PlayerCharacterData {
 
     @Override
     public String toString() {
-        return "PlayerCharacterData{" +
+        return "PlayerCharacter{" +
                 "type='" + type + '\'' +
                 ", nickname='" + nickname + '\'' +
                 ", level=" + level +

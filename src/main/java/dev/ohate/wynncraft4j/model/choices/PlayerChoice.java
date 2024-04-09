@@ -1,6 +1,7 @@
 package dev.ohate.wynncraft4j.model.choices;
 
 import dev.ohate.wynncraft4j.model.player.PlayerLegacyRankColour;
+import dev.ohate.wynncraft4j.model.player.PlayerRank;
 
 public class PlayerChoice {
 
@@ -38,6 +39,10 @@ public class PlayerChoice {
 
     public PlayerLegacyRankColour getLegacyRankColour() {
         return legacyRankColour;
+    }
+
+    public PlayerRank getPlayerRank() {
+        return PlayerRank.fromString(rank.equals("Player") && supportRank != null ? supportRank : rank);
     }
 
     @Override

@@ -1,55 +1,50 @@
 package dev.ohate.wynncraft4j.model.guild;
 
-import com.google.gson.annotations.SerializedName;
-
 import java.util.Map;
+import java.util.UUID;
 
 public class GuildMembers {
 
     private int total;
-    private Map<String, GuildMember> owner;
-    @SerializedName("chief")
-    private Map<String, GuildMember> chiefs;
-    @SerializedName("captain")
-    private Map<String, GuildMember> captains;
-    @SerializedName("recruiter")
-    private Map<String, GuildMember> recruiters;
-    @SerializedName("recruit")
-    private Map<String, GuildMember> recruits;
+    private Map<UUID, GuildMember> owner;
+    private Map<UUID, GuildMember> chief;
+    private Map<UUID, GuildMember> captain;
+    private Map<UUID, GuildMember> recruiter;
+    private Map<UUID, GuildMember> recruit;
 
     public int getTotal() {
         return total;
     }
 
-    public Map<String, GuildMember> getOwner() {
+    public Map<UUID, GuildMember> getOwner() {
         return owner;
     }
 
-    public Map<String, GuildMember> getChiefs() {
-        return chiefs;
+    public Map<UUID, GuildMember> getChiefs() {
+        return chief;
     }
 
-    public Map<String, GuildMember> getCaptains() {
-        return captains;
+    public Map<UUID, GuildMember> getCaptains() {
+        return captain;
     }
 
-    public Map<String, GuildMember> getRecruiters() {
-        return recruiters;
+    public Map<UUID, GuildMember> getRecruiters() {
+        return recruiter;
     }
 
-    public Map<String, GuildMember> getRecruits() {
-        return recruits;
+    public Map<UUID, GuildMember> getRecruits() {
+        return recruit;
     }
 
     @Override
     public String toString() {
         return "GuildMembers{" +
                 "total=" + total +
-                ", owner=" + getOwner() +
-                ", chiefs=" + chiefs +
-                ", captains=" + captains +
-                ", recruiters=" + recruiters +
-                ", recruits=" + recruits +
+                ", owner=" + owner +
+                ", chief=" + chief +
+                ", captain=" + captain +
+                ", recruiter=" + recruiter +
+                ", recruit=" + recruit +
                 '}';
     }
 
