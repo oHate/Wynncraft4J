@@ -6,7 +6,7 @@
 
     <groupId>dev.ohate</groupId>
     <artifactId>Wynncraft4J</artifactId>
-    <version>2.0</version>
+    <version>2.1</version>
 
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
