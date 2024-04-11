@@ -10,17 +10,12 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.time.Duration;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 public class DefaultHttpClient implements WynncraftHttpClient {
 
-    private final ExecutorService executorService;
     private final HttpClient httpClient;
 
     public DefaultHttpClient() {
-        this.executorService = Executors.newCachedThreadPool();
         this.httpClient = HttpClient.newBuilder()
                 .followRedirects(HttpClient.Redirect.ALWAYS)
                 .connectTimeout(Duration.ofSeconds(10))
@@ -28,14 +23,31 @@ public class DefaultHttpClient implements WynncraftHttpClient {
     }
 
     @Override
-    public WynncraftHttpResponse makeRequest(String url) {
-        HttpRequest request = HttpRequest.newBuilder()
+    public void shutdown() {
+        httpClient.shutdownNow();
+    }
+
+    @Override
+    public WynncraftHttpResponse makeGETRequest(String url) {
+        return getResponse(HttpRequest.newBuilder()
                 .uri(URI.create(url))
                 .header("Content-Type", "application/json")
                 .header("User-Agent", DEFAULT_USER_AGENT)
                 .GET()
-                .build();
+                .build());
+    }
 
+    @Override
+    public WynncraftHttpResponse makePOSTRequest(String url, String payload) {
+        return getResponse(HttpRequest.newBuilder()
+                .uri(URI.create(url))
+                .header("Content-Type", "application/json")
+                .header("User-Agent", DEFAULT_USER_AGENT)
+                .POST(HttpRequest.BodyPublishers.ofString(payload))
+                .build());
+    }
+
+    private WynncraftHttpResponse getResponse(HttpRequest request) {
         try {
             HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
 
@@ -43,11 +55,6 @@ public class DefaultHttpClient implements WynncraftHttpClient {
         } catch (IOException | InterruptedException e) {
             throw new RuntimeException(e);
         }
-    }
-
-    @Override
-    public void shutdown() {
-        httpClient.shutdownNow();
     }
 
     private RateLimit createRateLimit(HttpResponse<String> response) {

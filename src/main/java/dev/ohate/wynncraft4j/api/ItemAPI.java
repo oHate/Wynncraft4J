@@ -5,6 +5,7 @@ import dev.ohate.wynncraft4j.http.HTTPQueryParams;
 import dev.ohate.wynncraft4j.http.WynncraftHttpClient;
 import dev.ohate.wynncraft4j.model.item.Item;
 import dev.ohate.wynncraft4j.model.item.PagedItemDatabase;
+import dev.ohate.wynncraft4j.model.item.query.ItemQuery;
 
 import java.lang.reflect.Type;
 import java.util.Map;
@@ -31,10 +32,16 @@ public class ItemAPI extends API {
                 HTTPQueryParams.create().add("fullResult", "True"));
     }
 
+    public Map<String, Item> searchItem(ItemQuery query) {
+        return post(ITEM_MAP_TYPE, "item/search", query.toString());
+    }
+
     public Map<String, Item> searchItem(String query) {
         return get(ITEM_MAP_TYPE, "item/search/" + query);
     }
 
-
+//    public ItemMetadata getItemMetadata() {
+//        https://api.wynncraft.com/v3/item/metadata
+//    }
 
 }

@@ -12,6 +12,7 @@ import dev.ohate.wynncraft4j.model.player.abilities.PlayerAbilities;
 import dev.ohate.wynncraft4j.model.player.character.PlayerCharacter;
 
 import java.util.Map;
+import java.util.Set;
 import java.util.UUID;
 
 public class PlayerAPI extends API {
@@ -20,8 +21,16 @@ public class PlayerAPI extends API {
         super(client);
     }
 
+    public Player getPlayer(UUID playerId) {
+        return getPlayer(playerId, true);
+    }
+
     public Player getPlayer(UUID playerId, boolean fullResult) {
         return getPlayer(playerId.toString(), fullResult).getPlayer();
+    }
+
+    public PlayerSelection getPlayer(String username) {
+        return getPlayer(username, true);
     }
 
     public PlayerSelection getPlayer(String username, boolean fullResult) {

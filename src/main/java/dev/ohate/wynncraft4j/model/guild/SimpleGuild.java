@@ -14,6 +14,10 @@ public class SimpleGuild {
     private String name;
     private String prefix;
 
+    public UUID getUuid() {
+        return uuid;
+    }
+
     public String getName() {
         return name;
     }

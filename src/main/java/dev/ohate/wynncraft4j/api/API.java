@@ -21,20 +21,50 @@ public class API {
         this.client = client;
     }
 
-    <T> T get(Class<T> clazz, String request) {
-        return get(clazz, request, null);
+    <T> T post(Class<T> clazz, String request, String payload, HTTPQueryParams params) {
+        return Utilities.GSON.fromJson(getResponse(request, payload, params).getBody(), clazz);
+    }
+
+    <T> T post(Class<T> clazz, String request, String payload) {
+        return post(clazz, request, payload, null);
+    }
+
+    <T> T post(Type type, String request, String payload, HTTPQueryParams params) {
+        return Utilities.GSON.fromJson(getResponse(request, payload, params).getBody(), type);
+    }
+
+    <T> T post(Type type, String request, String payload) {
+        return post(type, request, payload, null);
     }
 
     <T> T get(Class<T> clazz, String request, HTTPQueryParams params) {
         return Utilities.GSON.fromJson(getResponse(request, params).getBody(), clazz);
     }
 
-    <T> T get(Type type, String request) {
-        return Utilities.GSON.fromJson(getResponse(request, null).getBody(), type);
+    <T> T get(Class<T> clazz, String request) {
+        return get(clazz, request, null);
     }
 
     <T> T get(Type type, String request, HTTPQueryParams params) {
         return Utilities.GSON.fromJson(getResponse(request, params).getBody(), type);
+    }
+
+    <T> T get(Type type, String request) {
+        return get(type, request, null);
+    }
+
+    WynncraftHttpResponse getResponse(String request, String payload, HTTPQueryParams params) {
+        String url = WynncraftAPI.BASE_URL + request;
+
+        if (params != null) {
+            url = params.getAsQueryString(url);
+        }
+
+        WynncraftHttpResponse response = client.makePOSTRequest(url, payload);
+
+        validateResponse(response);
+
+        return response;
     }
 
     WynncraftHttpResponse getResponse(String request, HTTPQueryParams params) {
@@ -44,8 +74,14 @@ public class API {
             url = params.getAsQueryString(url);
         }
 
-        WynncraftHttpResponse response = client.makeRequest(url);
+        WynncraftHttpResponse response = client.makeGETRequest(url);
 
+        validateResponse(response);
+
+        return response;
+    }
+
+    private void validateResponse(WynncraftHttpResponse response) {
         if (response.getStatusCode() != 200 && response.getStatusCode() != 300) {
             String responseBody = response.getBody();
 
@@ -58,8 +94,6 @@ public class API {
                 throw new WynncraftException(response.getStatusCode(), "An unknown error has occurred.", e);
             }
         }
-
-        return response;
     }
 
 }

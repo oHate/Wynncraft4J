@@ -6,7 +6,8 @@ public interface WynncraftHttpClient {
 
     String DEFAULT_USER_AGENT = "Wynncraft4J/" + WynncraftAPI.VERSION;
 
-    WynncraftHttpResponse makeRequest(String url);
+    WynncraftHttpResponse makeGETRequest(String url);
+    WynncraftHttpResponse makePOSTRequest(String url, String payload);
 
     void shutdown();
 

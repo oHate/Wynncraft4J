@@ -13,6 +13,7 @@ public class Item {
     private String armorType;
     private String attackSpeed;
     private String internalName;
+    private ItemDropMeta dropMeta;
 //    private ItemBase base; // Needs deserializer
 //    private Map<String, Integer> requirements; // Can have quest req which is a string
 //    private ItemIdentifications identifications; // Needs deserializer
