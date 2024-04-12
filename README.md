@@ -66,5 +66,5 @@ Replace VERSION with the latest [release](https://github.com/oHate/Wynncraft4J/r
 **WIP:** base, identifications, and requirements
 - [x] /item/database
 - [x] /item/search (Simple)
-- [ ] /item/search (Advanced)
-- [ ] /item/metadata
+- [x] /item/search (Advanced)
+- [x] /item/metadata

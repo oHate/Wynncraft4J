@@ -35,7 +35,7 @@ public class PlayerAPI extends API {
 
     public PlayerSelection getPlayer(String username, boolean fullResult) {
         return PlayerSelection.fromResponse(getResponse("player/" + username,
-                fullResult ? HTTPQueryParams.create().add("fullResult", "True") : null));
+                fullResult ? HTTPQueryParams.create().add("fullResult") : null));
     }
 
     public Map<UUID, CharacterEntry> getPlayerCharacters(UUID playerId) {

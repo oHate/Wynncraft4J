@@ -4,7 +4,8 @@ import com.google.gson.reflect.TypeToken;
 import dev.ohate.wynncraft4j.http.HTTPQueryParams;
 import dev.ohate.wynncraft4j.http.WynncraftHttpClient;
 import dev.ohate.wynncraft4j.model.item.Item;
-import dev.ohate.wynncraft4j.model.item.PagedItemDatabase;
+import dev.ohate.wynncraft4j.model.item.ItemMeta;
+import dev.ohate.wynncraft4j.model.item.PagedItemsResult;
 import dev.ohate.wynncraft4j.model.item.query.ItemQuery;
 
 import java.lang.reflect.Type;
@@ -18,30 +19,40 @@ public class ItemAPI extends API {
         super(client);
     }
 
-    public PagedItemDatabase getPagedItemDatabase() {
+    public PagedItemsResult getPagedItemDatabase() {
         return getPagedItemDatabase(1);
     }
 
-    public PagedItemDatabase getPagedItemDatabase(int page) {
-        return get(PagedItemDatabase.class, "item/database",
+    public PagedItemsResult getPagedItemDatabase(int page) {
+        return get(PagedItemsResult.class, "item/database",
                 HTTPQueryParams.create().add("page", page));
     }
 
     public Map<String, Item> getItemDatabase() {
         return get(ITEM_MAP_TYPE, "item/database",
-                HTTPQueryParams.create().add("fullResult", "True"));
+                HTTPQueryParams.create().add("fullResult"));
     }
 
-    public Map<String, Item> searchItem(ItemQuery query) {
-        return post(ITEM_MAP_TYPE, "item/search", query.toString());
+    public PagedItemsResult getPagedItems(ItemQuery query) {
+        return getPagedItems(query, 1);
     }
 
-    public Map<String, Item> searchItem(String query) {
+    public PagedItemsResult getPagedItems(ItemQuery query, int page) {
+        return post(PagedItemsResult.class, "item/search", query.toString(),
+                HTTPQueryParams.create().add("page", page));
+    }
+
+    public Map<String, Item> getItems(ItemQuery query) {
+        return post(ITEM_MAP_TYPE, "item/search", query.toString(),
+                HTTPQueryParams.create().add("fullResult"));
+    }
+
+    public Map<String, Item> getItems(String query) {
         return get(ITEM_MAP_TYPE, "item/search/" + query);
     }
 
-//    public ItemMetadata getItemMetadata() {
-//        https://api.wynncraft.com/v3/item/metadata
-//    }
+    public ItemMeta getItemMeta() {
+        return get(ItemMeta.class, "item/metadata");
+    }
 
 }

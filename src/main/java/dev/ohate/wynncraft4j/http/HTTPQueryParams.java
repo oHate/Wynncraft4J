@@ -15,6 +15,10 @@ public class HTTPQueryParams {
 
     }
 
+    public HTTPQueryParams add(String key) {
+        return add(key, null);
+    }
+
     public HTTPQueryParams add(String key, Object value) {
         this.params.put(key, value);
         return this;
@@ -32,7 +36,11 @@ public class HTTPQueryParams {
                 url.append("&");
             }
 
-            url.append(entry.getKey()).append("=").append(entry.getValue());
+            url.append(entry.getKey());
+
+            if (entry.getValue() != null) {
+                url.append("=").append(entry.getValue());
+            }
         }
 
         return url.toString();

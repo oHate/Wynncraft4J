@@ -2,7 +2,7 @@ package dev.ohate.wynncraft4j.model.item;
 
 import java.util.Map;
 
-public class PagedItemDatabase {
+public class PagedItemsResult {
 
     private Controller controller;
     private Map<String, Item> results;
