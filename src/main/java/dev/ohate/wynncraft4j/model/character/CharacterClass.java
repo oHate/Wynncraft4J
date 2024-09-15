@@ -1,43 +1,50 @@
 package dev.ohate.wynncraft4j.model.character;
 
-import java.util.Map;
-
 public class CharacterClass {
 
-    private String id;
-    private String name;
-    private String lore;
+    private CharacterType type;
+    private CharacterType donorType;
     private int overallDifficulty;
-    private Map<String, CharacterArchetype> archetypes;
 
-    public String getId() {
-        return id;
+    /**
+     * Gets the type of the character.
+     *
+     * @return the type of the character
+     */
+    public CharacterType getType() {
+        return this.type;
     }
 
-    public String getName() {
-        return name;
+    /**
+     * Gets the donor type of the character.
+     *
+     * @return the donor type of the character
+     */
+    public CharacterType getDonorType() {
+        return this.donorType;
     }
 
-    public String getLore() {
-        return lore;
-    }
-
+    /**
+     * Gets the overall difficulty level of the character.
+     *
+     * @return the overall difficulty level
+     */
     public int getOverallDifficulty() {
-        return overallDifficulty;
+        return this.overallDifficulty;
     }
 
-    public Map<String, CharacterArchetype> getArchetypes() {
-        return archetypes;
-    }
-
+    /**
+     * Returns a string representation of the character class.
+     * The string includes the type, donor type, and overall difficulty.
+     *
+     * @return a string representation of the character class
+     */
     @Override
     public String toString() {
         return "CharacterClass{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", lore='" + lore + '\'' +
-                ", overallDifficulty=" + overallDifficulty +
-                ", archetypes=" + archetypes +
+                "type=" + this.type +
+                ", donorType=" + this.donorType +
+                ", overallDifficulty=" + this.overallDifficulty +
                 '}';
     }
 
