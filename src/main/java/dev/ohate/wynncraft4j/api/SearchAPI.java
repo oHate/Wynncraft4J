@@ -16,6 +16,7 @@ public class SearchAPI extends API {
 
     /**
      * Performs a search using the provided query string and returns a SearchResult.
+     * Player results are limited to 20 entries and guilds results to 50.
      *
      * @param query the search query string.
      * @return a SearchResult containing the results of the query.

@@ -1,4 +1,4 @@
-package dev.ohate.wynncraft4j.model.search;
+package dev.ohate.wynncraft4j.model.search.results;
 
 import java.util.Arrays;
 

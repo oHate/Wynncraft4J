@@ -1,8 +1,15 @@
-package dev.ohate.wynncraft4j.model.search;
+package dev.ohate.wynncraft4j.model.guild;
 
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.Map;
 import java.util.UUID;
 
-public class GuildSearchResult {
+public class GuildEntry {
+
+    public static final Type GUILD_MAP_TYPE = new TypeToken<Map<UUID, GuildEntry>>() {
+    }.getType();
 
     private UUID uuid;
     private String name;
@@ -43,7 +50,7 @@ public class GuildSearchResult {
      */
     @Override
     public String toString() {
-        return "GuildSearchResult{" +
+        return "GuildEntry{" +
                 "uuid=" + this.uuid +
                 ", name='" + this.name + '\'' +
                 ", prefix='" + this.prefix + '\'' +

@@ -47,7 +47,7 @@ public class AdvancedItemFilterMeta {
 
     @Override
     public String toString() {
-        return "ItemFilterAdvancedMeta{" +
+        return "AdvancedItemFilterMeta{" +
                 "accessories=" + Arrays.toString(accessories) +
                 ", attackSpeed=" + Arrays.toString(attackSpeed) +
                 ", weapons=" + Arrays.toString(weapons) +

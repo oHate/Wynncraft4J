@@ -17,7 +17,7 @@ public class PagedItemsResult {
 
     @Override
     public String toString() {
-        return "PagedItemDatabase{" +
+        return "PagedItemsResult{" +
                 "controller=" + controller +
                 ", results=" + results +
                 '}';
@@ -25,7 +25,7 @@ public class PagedItemsResult {
 
     public static class Controller {
 
-        private  int count;
+        private int count;
         private int pages;
         private int current;
         private Integer previous;

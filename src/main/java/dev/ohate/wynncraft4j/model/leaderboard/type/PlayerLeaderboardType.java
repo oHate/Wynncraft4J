@@ -1,9 +1,7 @@
-package dev.ohate.wynncraft4j.util;
+package dev.ohate.wynncraft4j.model.leaderboard.type;
 
-public enum LeaderboardType {
-    GUILD_LEVEL("guildLevel"),
-    GUILD_TERRITORIES("guildTerritories"),
-    GUILD_WARS("guildWars"),
+public enum PlayerLeaderboardType {
+    GLOBAL_PLAYER_CONTENT("globalPlayerContent"),
     COMBAT_GLOBAL_LEVEL("combatGlobalLevel"),
     TOTAL_GLOBAL_LEVEL("totalGlobalLevel"),
     COMBAT_SOLO_LEVEL("combatSoloLevel"),
@@ -31,21 +29,20 @@ public enum LeaderboardType {
     IRONMAN_CONTENT("ironmanContent"),
     ULTIMATE_IRONMAN_CONTENT("ultimateIronmanContent"),
     CRAFTSMAN_CONTENT("craftsmanContent"),
-    HARDCORE_LEGACY_LEVEL("hardcoreLegacyLevel"),
     HUNTED_CONTENT("huntedContent"),
-    HARDCORE_CONTENT("hardcoreContent"),
-    HUIC_CONTENT("huicContent"),
-    HUICH_CONTENT("huichContent");
+    NOG_SR_PLAYERS("nogSrPlayers"),
+    NOL_SR_PLAYERS("nolSrPlayers"),
+    TCC_SR_PLAYERS("tccSrPlayers"),
+    TNA_SR_PLAYERS("tnaSrPlayers");
 
-    private final String value;
+    private final String id;
 
-    private LeaderboardType(String value) {
-        this.value = value;
+    private PlayerLeaderboardType(String id) {
+        this.id = id;
     }
 
-    @Override
-    public String toString() {
-        return value;
+    public String getId() {
+        return this.id;
     }
 
 }

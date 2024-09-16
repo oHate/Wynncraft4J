@@ -1,5 +1,6 @@
 package dev.ohate.wynncraft4j.model.player.character;
 
+import dev.ohate.wynncraft4j.model.character.CharacterType;
 import dev.ohate.wynncraft4j.model.player.global.PlayerDungeons;
 import dev.ohate.wynncraft4j.model.player.global.PlayerPvP;
 import dev.ohate.wynncraft4j.model.player.global.PlayerRaids;
@@ -8,10 +9,10 @@ import java.util.Arrays;
 
 public class PlayerCharacter {
 
-    private String type;
+    private CharacterType type;
     private String nickname;
     private int level;
-    private int xp;
+    private long xp;
     private int xpPercent;
     private int totalLevel;
     private int wars;
@@ -31,119 +32,235 @@ public class PlayerCharacter {
     private PlayerRaids raids;
     private String[] quests;
 
-    public String getType() {
-        return type;
+    /**
+     * Returns the type of the player's character.
+     *
+     * @return The {@link CharacterType} of the player's character.
+     */
+    public CharacterType getType() {
+        return this.type;
     }
 
+    /**
+     * Returns the nickname of the player's character.
+     *
+     * @return The nickname of the player's character.
+     */
     public String getNickname() {
-        return nickname;
+        return this.nickname;
     }
 
+    /**
+     * Returns the level of the player's character.
+     *
+     * @return The level of the player's character.
+     */
     public int getLevel() {
-        return level;
+        return this.level;
     }
 
-    public int getXp() {
-        return xp;
+    /**
+     * Returns the experience points (XP) of the player's character.
+     *
+     * @return The XP of the player's character.
+     */
+    public long getXp() {
+        return this.xp;
     }
 
+    /**
+     * Returns the percentage of XP towards the next level.
+     *
+     * @return The XP percentage of the player's character.
+     */
     public int getXpPercent() {
-        return xpPercent;
+        return this.xpPercent;
     }
 
+    /**
+     * Returns the total level of the player's character across all professions.
+     *
+     * @return The total level of the player's character.
+     */
     public int getTotalLevel() {
-        return totalLevel;
+        return this.totalLevel;
     }
 
+    /**
+     * Returns the number of wars the player's character has participated in.
+     *
+     * @return The number of wars.
+     */
     public int getWars() {
-        return wars;
+        return this.wars;
     }
 
+    /**
+     * Returns the total playtime of the player's character in hours.
+     *
+     * @return The playtime of the player's character.
+     */
     public double getPlaytime() {
-        return playtime;
+        return this.playtime;
     }
 
+    /**
+     * Returns the number of mobs killed by the player's character.
+     *
+     * @return The number of mobs killed.
+     */
     public int getMobsKilled() {
-        return mobsKilled;
+        return this.mobsKilled;
     }
 
+    /**
+     * Returns the number of chests found by the player's character.
+     *
+     * @return The number of chests found.
+     */
     public int getChestsFound() {
-        return chestsFound;
+        return this.chestsFound;
     }
 
+    /**
+     * Returns the number of blocks walked by the player's character.
+     *
+     * @return The number of blocks walked.
+     */
     public int getBlocksWalked() {
-        return blocksWalked;
+        return this.blocksWalked;
     }
 
+    /**
+     * Returns the number of items identified by the player's character.
+     *
+     * @return The number of items identified.
+     */
     public int getItemsIdentified() {
-        return itemsIdentified;
+        return this.itemsIdentified;
     }
 
+    /**
+     * Returns the number of logins of the player's character.
+     *
+     * @return The number of logins.
+     */
     public int getLogins() {
-        return logins;
+        return this.logins;
     }
 
+    /**
+     * Returns the number of deaths of the player's character.
+     *
+     * @return The number of deaths.
+     */
     public int getDeaths() {
-        return deaths;
+        return this.deaths;
     }
 
+    /**
+     * Returns the number of discoveries made by the player's character.
+     *
+     * @return The number of discoveries.
+     */
     public int getDiscoveries() {
-        return discoveries;
+        return this.discoveries;
     }
 
+    /**
+     * Returns the player's PvP statistics and achievements.
+     *
+     * @return The {@link PlayerPvP} object representing the player's PvP statistics.
+     */
     public PlayerPvP getPvp() {
-        return pvp;
+        return this.pvp;
     }
 
+    /**
+     * Returns the gamemodes the player's character has participated in.
+     *
+     * @return An array of gamemodes.
+     */
     public String[] getGamemode() {
-        return gamemode;
+        return this.gamemode;
     }
 
+    /**
+     * Returns the skill points of the player's character.
+     *
+     * @return The {@link PlayerSkillPoints} object representing the skill points.
+     */
     public PlayerSkillPoints getSkillPoints() {
-        return skillPoints == null ? new PlayerSkillPoints() : skillPoints;
+        return this.skillPoints == null ? new PlayerSkillPoints() : skillPoints;
     }
 
+    /**
+     * Returns the professions the player's character has.
+     *
+     * @return The {@link PlayerProfessions} object representing the professions.
+     */
     public PlayerProfessions getProfessions() {
-        return professions;
+        return this.professions;
     }
 
+    /**
+     * Returns the dungeons the player's character has completed.
+     *
+     * @return The {@link PlayerDungeons} object representing the completed dungeons.
+     */
     public PlayerDungeons getDungeons() {
-        return dungeons;
+        return this.dungeons;
     }
 
+    /**
+     * Returns the raids the player's character has participated in.
+     *
+     * @return The {@link PlayerRaids} object representing the raids.
+     */
     public PlayerRaids getRaids() {
-        return raids;
+        return this.raids;
     }
 
+    /**
+     * Returns the quests completed by the player's character.
+     *
+     * @return An array of completed quests.
+     */
     public String[] getQuests() {
-        return quests;
+        return this.quests;
     }
 
+    /**
+     * Returns a string representation of the {@code PlayerCharacter} object,
+     * including various attributes and statistics of the player's character.
+     *
+     * @return A string representation of the {@code PlayerCharacter} object.
+     */
     @Override
     public String toString() {
         return "PlayerCharacter{" +
-                "type='" + type + '\'' +
-                ", nickname='" + nickname + '\'' +
-                ", level=" + level +
-                ", xp=" + xp +
-                ", xpPercent=" + xpPercent +
-                ", totalLevel=" + totalLevel +
-                ", wars=" + wars +
-                ", playtime=" + playtime +
-                ", mobsKilled=" + mobsKilled +
-                ", chestsFound=" + chestsFound +
-                ", blocksWalked=" + blocksWalked +
-                ", itemsIdentified=" + itemsIdentified +
-                ", logins=" + logins +
-                ", deaths=" + deaths +
-                ", discoveries=" + discoveries +
-                ", pvp=" + pvp +
-                ", gamemode=" + Arrays.toString(gamemode) +
-                ", skillPoints=" + skillPoints +
-                ", professions=" + professions +
-                ", dungeons=" + dungeons +
-                ", raids=" + raids +
-                ", quests=" + Arrays.toString(quests) +
+                "type='" + this.type + '\'' +
+                ", nickname='" + this.nickname + '\'' +
+                ", level=" + this.level +
+                ", xp=" + this.xp +
+                ", xpPercent=" + this.xpPercent +
+                ", totalLevel=" + this.totalLevel +
+                ", wars=" + this.wars +
+                ", playtime=" + this.playtime +
+                ", mobsKilled=" + this.mobsKilled +
+                ", chestsFound=" + this.chestsFound +
+                ", blocksWalked=" + this.blocksWalked +
+                ", itemsIdentified=" + this.itemsIdentified +
+                ", logins=" + this.logins +
+                ", deaths=" + this.deaths +
+                ", discoveries=" + this.discoveries +
+                ", pvp=" + this.pvp +
+                ", gamemode=" + Arrays.toString(this.gamemode) +
+                ", skillPoints=" + this.skillPoints +
+                ", professions=" + this.professions +
+                ", dungeons=" + this.dungeons +
+                ", raids=" + this.raids +
+                ", quests=" + Arrays.toString(this.quests) +
                 '}';
     }
 

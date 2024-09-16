@@ -9,7 +9,7 @@ public enum CharacterType {
     ASSASSIN("Assassin"),
     NINJA("Ninja"),
     MAGE("Mage"),
-    DARK_WIZARD("Dark Wizard"),
+    DARKWIZARD("Dark Wizard"),
     SHAMAN("Shaman"),
     SKYSEER("Skyseer");
 
@@ -62,7 +62,7 @@ public enum CharacterType {
             case HUNTER -> ARCHER;
             case KNIGHT -> WARRIOR;
             case NINJA -> ASSASSIN;
-            case DARK_WIZARD -> MAGE;
+            case DARKWIZARD -> MAGE;
             case SKYSEER -> SHAMAN;
             default -> this;
         };

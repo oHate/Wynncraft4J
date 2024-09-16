@@ -3,7 +3,6 @@ package dev.ohate.wynncraft4j;
 import dev.ohate.wynncraft4j.api.*;
 import dev.ohate.wynncraft4j.http.WynncraftHttpClient;
 import dev.ohate.wynncraft4j.http.impl.DefaultHttpClient;
-import dev.ohate.wynncraft4j.model.search.SearchResult;
 
 public class WynncraftAPI {
 
@@ -14,8 +13,11 @@ public class WynncraftAPI {
     private final PlayerAPI player;
     private final GuildAPI guild;
     private final ItemAPI item;
-    private final ClassesAPI classes;
+    private final LeaderboardAPI leaderboard;
+    // Ability
+    private final MapAPI map;
     private final SearchAPI search;
+    private final ClassesAPI classes;
 
     /**
      * Constructs a {@code WynncraftAPI} instance with the specified HTTP client.
@@ -27,8 +29,10 @@ public class WynncraftAPI {
         this.player = new PlayerAPI(client);
         this.guild = new GuildAPI(client);
         this.item = new ItemAPI(client);
+        this.leaderboard = new LeaderboardAPI(client);
         this.classes = new ClassesAPI(client);
         this.search = new SearchAPI(client);
+        this.map = new MapAPI(client);
     }
 
     /**
@@ -66,12 +70,21 @@ public class WynncraftAPI {
     }
 
     /**
-     * Provides access to the Classes API.
+     * Provides access to the Leaderboard API.
      *
-     * @return an instance of {@link ClassesAPI} for class-related API calls
+     * @return an instance of {@link LeaderboardAPI} for leaderboard-related API calls
      */
-    public ClassesAPI classes() {
-        return this.classes;
+    public LeaderboardAPI leaderboard() {
+        return this.leaderboard;
+    }
+
+    /**
+     * Provides access to the Map API.
+     *
+     * @return an instance of {@link MapAPI} for map-related API calls
+     */
+    public MapAPI map() {
+        return this.map;
     }
 
     /**
@@ -81,6 +94,15 @@ public class WynncraftAPI {
      */
     public SearchAPI search() {
         return this.search;
+    }
+
+    /**
+     * Provides access to the Classes API.
+     *
+     * @return an instance of {@link ClassesAPI} for class-related API calls
+     */
+    public ClassesAPI classes() {
+        return this.classes;
     }
 
     /**

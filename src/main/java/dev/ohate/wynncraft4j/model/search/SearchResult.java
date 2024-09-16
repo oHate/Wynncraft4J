@@ -1,6 +1,9 @@
 package dev.ohate.wynncraft4j.model.search;
 
 import com.google.gson.JsonObject;
+import dev.ohate.wynncraft4j.model.guild.GuildEntry;
+import dev.ohate.wynncraft4j.model.search.results.CoordinateSearchResult;
+import dev.ohate.wynncraft4j.model.search.results.PlayerSearchResult;
 
 import java.util.Collections;
 import java.util.Map;
@@ -10,8 +13,8 @@ public class SearchResult {
 
     private String query;
     private Map<UUID, PlayerSearchResult> players;
-    private Map<UUID, GuildSearchResult> guilds;
-    private Map<UUID, GuildSearchResult> guildsPrefix;
+    private Map<UUID, GuildEntry> guilds;
+    private Map<UUID, GuildEntry> guildsPrefix;
     private Map<String, CoordinateSearchResult> territories;
     private Map<String, CoordinateSearchResult> discoveries;
     private Map<String, JsonObject> items;
@@ -41,7 +44,7 @@ public class SearchResult {
      *
      * @return a map of guilds, or an empty map if no guilds are found
      */
-    public Map<UUID, GuildSearchResult> getGuilds() {
+    public Map<UUID, GuildEntry> getGuilds() {
         return this.guilds == null ? Collections.emptyMap() : this.guilds;
     }
 
@@ -51,7 +54,7 @@ public class SearchResult {
      *
      * @return a map of guilds based on their prefix, or an empty map if no guilds are found
      */
-    public Map<UUID, GuildSearchResult> getGuildsPrefix() {
+    public Map<UUID, GuildEntry> getGuildsPrefix() {
         return this.guildsPrefix == null ? Collections.emptyMap() : this.guildsPrefix;
     }
 

@@ -24,5 +24,5 @@ public enum ItemProfessions {
     public String toString() {
         return id;
     }
-    
+
 }

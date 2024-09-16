@@ -1,7 +1,7 @@
 package dev.ohate.wynncraft4j.json;
 
 import com.google.gson.*;
-import dev.ohate.wynncraft4j.model.search.CoordinateSearchResult;
+import dev.ohate.wynncraft4j.model.search.results.CoordinateSearchResult;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;

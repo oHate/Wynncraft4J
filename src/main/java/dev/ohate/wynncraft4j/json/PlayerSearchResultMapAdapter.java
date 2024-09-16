@@ -1,7 +1,7 @@
 package dev.ohate.wynncraft4j.json;
 
 import com.google.gson.*;
-import dev.ohate.wynncraft4j.model.search.PlayerSearchResult;
+import dev.ohate.wynncraft4j.model.search.results.PlayerSearchResult;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;

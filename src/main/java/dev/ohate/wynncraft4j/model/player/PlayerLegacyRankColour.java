@@ -1,23 +1,42 @@
 package dev.ohate.wynncraft4j.model.player;
 
+import java.awt.*;
+
 public class PlayerLegacyRankColour {
 
-    private String main;
-    private String sub;
+    private Color main;
+    private Color sub;
 
-    public String getMain() {
-        return main;
+    /**
+     * Returns the main color associated with the player's legacy rank.
+     *
+     * @return The main color.
+     */
+    public Color getMain() {
+        return this.main;
     }
 
-    public String getSub() {
-        return sub;
+    /**
+     * Returns the secondary color associated with the player's legacy rank.
+     *
+     * @return The secondary color.
+     */
+    public Color getSub() {
+        return this.sub;
     }
 
+    /**
+     * Returns a string representation of the {@code PlayerLegacyRankColour} object.
+     * <p>
+     * The string includes the main and secondary colors.
+     *
+     * @return A string representation of the legacy rank colors.
+     */
     @Override
     public String toString() {
         return "PlayerLegacyRankColour{" +
-                "main='" + main + '\'' +
-                ", sub='" + sub + '\'' +
+                "main=" + this.main +
+                ", sub=" + this.sub +
                 '}';
     }
 

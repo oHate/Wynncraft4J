@@ -15,69 +15,135 @@ public class PlayerProfessions {
     private PlayerProfession woodworking;
     private PlayerProfession armouring;
 
+    /**
+     * Returns the player's progress in the Fishing profession.
+     *
+     * @return The {@link PlayerProfession} object representing the Fishing profession.
+     */
     public PlayerProfession getFishing() {
-        return fishing;
+        return this.fishing;
     }
 
+    /**
+     * Returns the player's progress in the Woodcutting profession.
+     *
+     * @return The {@link PlayerProfession} object representing the Woodcutting profession.
+     */
     public PlayerProfession getWoodcutting() {
-        return woodcutting;
+        return this.woodcutting;
     }
 
+    /**
+     * Returns the player's progress in the Mining profession.
+     *
+     * @return The {@link PlayerProfession} object representing the Mining profession.
+     */
     public PlayerProfession getMining() {
-        return mining;
+        return this.mining;
     }
 
+    /**
+     * Returns the player's progress in the Farming profession.
+     *
+     * @return The {@link PlayerProfession} object representing the Farming profession.
+     */
     public PlayerProfession getFarming() {
-        return farming;
+        return this.farming;
     }
 
+    /**
+     * Returns the player's progress in the Scribing profession.
+     *
+     * @return The {@link PlayerProfession} object representing the Scribing profession.
+     */
     public PlayerProfession getScribing() {
-        return scribing;
+        return this.scribing;
     }
 
+    /**
+     * Returns the player's progress in the Jeweling profession.
+     *
+     * @return The {@link PlayerProfession} object representing the Jeweling profession.
+     */
     public PlayerProfession getJeweling() {
-        return jeweling;
+        return this.jeweling;
     }
 
+    /**
+     * Returns the player's progress in the Alchemism profession.
+     *
+     * @return The {@link PlayerProfession} object representing the Alchemism profession.
+     */
     public PlayerProfession getAlchemism() {
-        return alchemism;
+        return this.alchemism;
     }
 
+    /**
+     * Returns the player's progress in the Cooking profession.
+     *
+     * @return The {@link PlayerProfession} object representing the Cooking profession.
+     */
     public PlayerProfession getCooking() {
-        return cooking;
+        return this.cooking;
     }
 
+    /**
+     * Returns the player's progress in the Weaponsmithing profession.
+     *
+     * @return The {@link PlayerProfession} object representing the Weaponsmithing profession.
+     */
     public PlayerProfession getWeaponsmithing() {
-        return weaponsmithing;
+        return this.weaponsmithing;
     }
 
+    /**
+     * Returns the player's progress in the Tailoring profession.
+     *
+     * @return The {@link PlayerProfession} object representing the Tailoring profession.
+     */
     public PlayerProfession getTailoring() {
-        return tailoring;
+        return this.tailoring;
     }
 
+    /**
+     * Returns the player's progress in the Woodworking profession.
+     *
+     * @return The {@link PlayerProfession} object representing the Woodworking profession.
+     */
     public PlayerProfession getWoodworking() {
-        return woodworking;
+        return this.woodworking;
     }
 
+    /**
+     * Returns the player's progress in the Armouring profession.
+     *
+     * @return The {@link PlayerProfession} object representing the Armouring profession.
+     */
     public PlayerProfession getArmouring() {
-        return armouring;
+        return this.armouring;
     }
 
+    /**
+     * Returns a string representation of the {@code PlayerProfessions} object,
+     * showing the player's progress in each profession.
+     *
+     * @return A string representation of the {@code PlayerProfessions} object.
+     */
     @Override
     public String toString() {
         return "PlayerProfessions{" +
-                "fishing=" + fishing +
-                ", woodcutting=" + woodcutting +
-                ", mining=" + mining +
-                ", farming=" + farming +
-                ", scribing=" + scribing +
-                ", jeweling=" + jeweling +
-                ", alchemism=" + alchemism +
-                ", cooking=" + cooking +
-                ", weaponsmithing=" + weaponsmithing +
-                ", tailoring=" + tailoring +
-                ", woodworking=" + woodworking +
-                ", armouring=" + armouring +
+                "fishing=" + this.fishing +
+                ", woodcutting=" + this.woodcutting +
+                ", mining=" + this.mining +
+                ", farming=" + this.farming +
+                ", scribing=" + this.scribing +
+                ", jeweling=" + this.jeweling +
+                ", alchemism=" + this.alchemism +
+                ", cooking=" + this.cooking +
+                ", weaponsmithing=" + this.weaponsmithing +
+                ", tailoring=" + this.tailoring +
+                ", woodworking=" + this.woodworking +
+                ", armouring=" + this.armouring +
                 '}';
     }
 

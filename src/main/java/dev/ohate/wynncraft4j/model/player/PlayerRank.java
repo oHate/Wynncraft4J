@@ -9,7 +9,15 @@ public enum PlayerRank {
     CHAMPION,
     MEDIA,
     MODERATOR,
-    ADMINISTRATOR;
+    ADMINISTRATOR,
+    WEBDEV,
+    GM,
+    BUILD,
+    CMD,
+    HYBRID,
+    ITEM,
+    QA,
+    ART;
 
     public static PlayerRank fromString(String name) {
         for (PlayerRank rank : values()) {

@@ -1,29 +1,29 @@
 package dev.ohate.wynncraft4j.json;
 
 import com.google.gson.*;
-import dev.ohate.wynncraft4j.model.search.GuildSearchResult;
+import dev.ohate.wynncraft4j.model.guild.GuildEntry;
 
 import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
-public class GuildSearchResultMapAdapter implements JsonDeserializer<Map<UUID, GuildSearchResult>> {
+public class GuildSearchResultMapAdapter implements JsonDeserializer<Map<UUID, GuildEntry>> {
 
     @Override
-    public Map<UUID, GuildSearchResult> deserialize(JsonElement json, Type type, JsonDeserializationContext context) throws JsonParseException {
+    public Map<UUID, GuildEntry> deserialize(JsonElement json, Type type, JsonDeserializationContext context) throws JsonParseException {
         JsonObject jsonObj = json.getAsJsonObject();
-        Map<UUID, GuildSearchResult> guildResultMap = new HashMap<>();
+        Map<UUID, GuildEntry> guildEntryMap = new HashMap<>();
 
         for (String key : jsonObj.keySet()) {
             JsonObject guildResultObj = jsonObj.get(key).getAsJsonObject();
             guildResultObj.addProperty("uuid", key);
 
-            GuildSearchResult guildSearchResult = context.deserialize(guildResultObj, GuildSearchResult.class);
-            guildResultMap.put(UUID.fromString(key), guildSearchResult);
+            GuildEntry guildEntry = context.deserialize(guildResultObj, GuildEntry.class);
+            guildEntryMap.put(UUID.fromString(key), guildEntry);
         }
 
-        return guildResultMap;
+        return guildEntryMap;
     }
 
 }
